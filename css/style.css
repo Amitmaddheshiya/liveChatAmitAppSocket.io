@@ -1,0 +1,111 @@
+body{
+    height: 100vh;
+    background-image: linear-gradient(rgb(79, 102, 219), rgb(217, 58, 204));
+}
+
+.logo{
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+h1{
+    color: rgb(194, 243, 194);
+    margin-top: 8px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.container{
+    max-width: 955px;
+    border: 2px solid rgb(2, 48, 2);
+    border-radius: 16px;
+    margin: auto;
+    height: 60vh;
+    padding: 12px;
+    overflow-y: auto;
+    margin-bottom: 23px;
+    box-shadow: 0px 0px 5px 2px rgb(65, 39, 39);
+}
+
+.message{
+    background-color: rgb(222, 240, 162);
+    width: 50%;
+    font-size:medium ;
+    padding: 10px;
+    margin: 17px 12px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.message strong {
+    color: rgb(71, 110, 182); /* Apply limegreen color to bold text */
+    font-weight: bold; /* Ensure the text is bold */
+}
+
+
+.left{
+    float: left;
+    clear: both;
+}
+
+.right{
+    float: right;
+    clear: both;
+}
+
+#send-container{
+    margin: auto;
+    text-align: center;
+    max-width: 1085px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#messageInp{
+    padding: 4px;
+    width: 79%;
+    border: 2px solid black;
+    border-radius: 6px;
+    height: 34px;
+    font-size: 16px;
+    color: rgb(71, 110, 182);
+}
+
+
+
+#send-button i {
+    font-size: 18px;
+}
+
+#send-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+
+/* Styles for screens 425x608 or smaller */
+@media (max-width: 440px) and (max-height: 620px) {
+    .message{
+        width: 50%;
+        font-size: small;   
+    }
+    h1{
+        font-size: 20px; 
+    }
+}
+
