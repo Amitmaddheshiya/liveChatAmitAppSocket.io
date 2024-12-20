@@ -46,15 +46,16 @@ form.addEventListener("submit", (e) => {
     }
 });
 
-// Handle click event for Submit button
+// Handle click event for the Submit button
 usernameSubmit.addEventListener('click', () => {
     const username = usernameInput.value.trim();
+
     if (username) {
-        // Notify the server about the new user
+        // Emit the username to the server
         socket.emit('new-user-joined', username);
 
-        // Hide the username container
-        usernameContainer.style.display = 'none';
+        // Add the 'hidden' class to the container to hide it
+        usernameContainer.classList.add('hidden');
     } else {
         alert('Please enter a valid name');
     }
