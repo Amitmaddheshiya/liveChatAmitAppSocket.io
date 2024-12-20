@@ -2,7 +2,7 @@ const socket = io('http://localhost:8000');
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');
 const messageContainer = document.querySelector(".container");
-const usernameForm = document.getElementById('username-container'); // Use the entire form for submission
+const usernameForm = document.getElementById('username-form'); // Use the entire form for submission
 const usernameInput = document.getElementById('username-input');
 let audio = new Audio('ting.wav');
 
