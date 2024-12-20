@@ -51,9 +51,6 @@ const handleUsernameSubmit = (e) => {
         // Hide the username container
         usernameContainer.style.display = 'none';
 
-        // Force reflow to ensure DOM updates
-        usernameContainer.offsetHeight; // Trigger reflow
-
         // Notify server about new user
         socket.emit('new-user-joined', username);
     } else {
@@ -64,7 +61,6 @@ const handleUsernameSubmit = (e) => {
 // Bind both click and touchstart events
 usernameSubmit.addEventListener('click', handleUsernameSubmit);
 usernameSubmit.addEventListener('touchstart', (e) => {
-    e.preventDefault(); // Prevent duplicate triggers
     handleUsernameSubmit(e);
 });
 
