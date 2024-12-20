@@ -2,9 +2,9 @@
   "name": "nodeserver",
   "version": "1.0.0",
   "description": "this is nodeServer for live chat harry",
-  "main": "index.js",
+  "main": "index.js", 
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "build": "babel index.js -d dist"
   },
