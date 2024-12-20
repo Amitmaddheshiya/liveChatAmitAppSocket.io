@@ -14,12 +14,12 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh; /* Full height for proper centering on mobile */
-    background-color: #f0f0f0; /* Background for visibility */
+    height: 100vh; /* Full-screen height */
+    background-color: #f0f0f0;
 }
 
 .hidden {
-    display: none !important; /* Use !important to force hide */
+    display: none !important;
 }
 
 

@@ -46,20 +46,32 @@ form.addEventListener("submit", (e) => {
     }
 });
 
-// Handle click event for the Submit button
-usernameSubmit.addEventListener('click', () => {
-    const username = usernameInput.value.trim();
+// Ensure the script runs after the DOM has loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const usernameContainer = document.getElementById('username-container');
+    const usernameInput = document.getElementById('username-input');
+    const usernameSubmit = document.getElementById('username-submit');
 
-    if (username) {
-        // Emit the username to the server
-        socket.emit('new-user-joined', username);
+    // Add click event listener to the Submit button
+    usernameSubmit.addEventListener('click', () => {
+        console.log('Submit button clicked'); // Debug log
+        const username = usernameInput.value.trim();
+        console.log('Entered username:', username); // Debug log
 
-        // Add the 'hidden' class to the container to hide it
-        usernameContainer.classList.add('hidden');
-    } else {
-        alert('Please enter a valid name');
-    }
+        if (username) {
+            // Emit the username to the server
+            console.log('Emitting username to the server...');
+            socket.emit('new-user-joined', username);
+
+            // Hide the username container
+            usernameContainer.classList.add('hidden');
+            console.log('Container hidden successfully'); // Debug log
+        } else {
+            alert('Please enter a valid name');
+        }
+    });
 });
+
 
 // Listen for server events
 socket.on("user-joined", (name) => append(`${name} joined the chat`, "right"));
