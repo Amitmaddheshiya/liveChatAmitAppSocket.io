@@ -1,7 +1,25 @@
-body{
+/* Ensure proper alignment and responsiveness */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     height: 100vh;
     background-image: linear-gradient(rgb(79, 102, 219), rgb(217, 58, 204));
+    font-family: Arial, sans-serif;
 }
+
+#username-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
 
 .logo{
     display: block;
