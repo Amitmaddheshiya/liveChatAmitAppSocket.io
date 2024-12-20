@@ -40,24 +40,24 @@ form.addEventListener('submit', (e) => {
 // Handle username form submission
 const handleUsernameSubmit = (e) => {
     e.preventDefault(); // Prevent default form action
-    const username = usernameInput.value.trim(); // Fixed: Correct trim() usage
 
+    // Debugging Log
+    console.log("Submit button clicked");
+
+    const username = usernameInput.value.trim(); // Fixed: Correct trim() usage
     if (username) {
-        // Debugging Log
-        console.log("Username submitted:", username);
+        console.log("Username:", username);
 
         // Hide the username container
         usernameContainer.style.display = 'none';
 
-        // Force visibility to hidden as a fallback
-        setTimeout(() => {
-            usernameContainer.style.visibility = 'hidden';
-        }, 100);
+        // Force reflow to ensure DOM updates
+        usernameContainer.offsetHeight; // Trigger reflow
 
         // Notify server about new user
         socket.emit('new-user-joined', username);
     } else {
-        alert("Please enter a valid name"); // Updated: Better UX for invalid input
+        alert("Please enter a valid name");
     }
 };
 
