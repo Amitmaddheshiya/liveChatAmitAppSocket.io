@@ -52,26 +52,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameInput = document.getElementById('username-input');
     const usernameSubmit = document.getElementById('username-submit');
 
-    // Add click event listener to the Submit button
-    usernameSubmit.addEventListener('click', () => {
-        console.log('Submit button clicked'); // Debug log
+    // Function to handle the username submission
+    function handleUsernameSubmit() {
         const username = usernameInput.value.trim();
-        console.log('Entered username:', username); // Debug log
-
         if (username) {
             // Emit the username to the server
-            console.log('Emitting username to the server...');
             socket.emit('new-user-joined', username);
 
             // Hide the username container
             usernameContainer.classList.add('hidden');
-            console.log('Container hidden successfully'); // Debug log
         } else {
             usernameContainer.classList.add('hidden');
             alert('Please enter a valid name');
         }
-    });
+    }
+
+    // Add event listeners for click and touchend events
+    usernameSubmit.addEventListener('click', handleUsernameSubmit);
+    usernameSubmit.addEventListener('touchend', handleUsernameSubmit);
 });
+
 
 
 // Listen for server events
