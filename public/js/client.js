@@ -5,8 +5,9 @@ const form = document.getElementById("send-container");
 const messageInput = document.getElementById("messageInp");
 const messageContainer = document.querySelector(".container");
 const usernameForm = document.getElementById("username-form");
-const usernameInput = document.getElementById("username-input");
-const usernameContainer = document.getElementById("username-container");
+const usernameContainer = document.getElementById('username-container');
+const usernameInput = document.getElementById('username-input');
+const usernameSubmit = document.getElementById('username-submit');
 
 let audio = new Audio("ting.wav");
 
@@ -45,16 +46,17 @@ form.addEventListener("submit", (e) => {
     }
 });
 
-// Handle username form submission
-usernameForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // Prevent default form action
-
+// Handle click event for Submit button
+usernameSubmit.addEventListener('click', () => {
     const username = usernameInput.value.trim();
     if (username) {
-        usernameContainer.style.display = "none"; // Hide username container
-        socket.emit("new-user-joined", username); // Notify server about new user
+        // Notify the server about the new user
+        socket.emit('new-user-joined', username);
+
+        // Hide the username container
+        usernameContainer.style.display = 'none';
     } else {
-        alert("Please enter a valid name");
+        alert('Please enter a valid name');
     }
 });
 
