@@ -2,9 +2,8 @@ const socket = io('http://localhost:8000');
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');
 const messageContainer = document.querySelector(".container");
-const usernameContainer = document.getElementById('username-container');
+const usernameForm = document.getElementById('username-container'); // Use the entire form for submission
 const usernameInput = document.getElementById('username-input');
-const usernameSubmit = document.getElementById('username-submit');
 let audio = new Audio('ting.wav');
 
 // Append message to container
@@ -38,30 +37,19 @@ form.addEventListener('submit', (e) => {
 });
 
 // Handle username form submission
-const handleUsernameSubmit = (e) => {
+usernameForm.addEventListener('submit', (e) => {
     e.preventDefault(); // Prevent default form action
 
-    // Debugging Log
-    console.log("Submit button clicked");
-
-    const username = usernameInput.value.trim(); // Fixed: Correct trim() usage
+    const username = usernameInput.value.trim();
     if (username) {
-        console.log("Username:", username);
-
         // Hide the username container
-        usernameContainer.style.display = 'none';
+        usernameForm.style.display = 'none';
 
         // Notify server about new user
         socket.emit('new-user-joined', username);
     } else {
         alert("Please enter a valid name");
     }
-};
-
-// Bind both click and touchstart events
-usernameSubmit.addEventListener('click', handleUsernameSubmit);
-usernameSubmit.addEventListener('touchstart', (e) => {
-    handleUsernameSubmit(e);
 });
 
 // Listen for server events
