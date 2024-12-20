@@ -7,26 +7,15 @@ const usernameInput = document.getElementById('username-input');
 const usernameSubmit = document.getElementById('username-submit');
 let audio = new Audio('ting.wav');
 
-// Handle form submission to send messages
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const message = messageInput.value;
-    append(`You: ${message}`, 'right');
-    socket.emit('send', message); // Send message to the server
-    messageInput.value = '';
-});
-
-// Function to append message
+// Append message to container
 const append = (message, position) => {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', position);
 
-    // Parse message and sender
     const [name, ...msgParts] = message.split(':');
     const senderName = name.trim();
     const msgContent = msgParts.join(':').trim();
 
-    // Create bold name and message
     const boldNameElement = document.createElement('strong');
     boldNameElement.textContent = `${senderName}: `;
     const messageTextNode = document.createTextNode(msgContent);
@@ -39,22 +28,42 @@ const append = (message, position) => {
     }
 };
 
-// Show username input form
-const handleUsernameSubmit = () => {
-    const username = usernameInput.value;
+// Handle message submission
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const message = messageInput.value;
+    append(`You: ${message}`, 'right');
+    socket.emit('send', message); // Send to server
+    messageInput.value = '';
+});
+
+// Handle username form submission
+const handleUsernameSubmit = (e) => {
+    e.preventDefault(); // Prevent default form action
+    const username = usernameInput.value.trim();
+
     if (username) {
-        usernameContainer.style.display = 'none';  // Hide the form after username is entered
-        socket.emit('new-user-joined', username); // Notify server about new user
+        // Debugging Log
+        console.log("Username submitted:", username);
+        
+        // Hide the username container
+        usernameContainer.style.display = 'none';
+
+        // Notify server about new user
+        socket.emit('new-user-joined', username);
     } else {
-        alert("Please enter a name");
+        alert("Please enter a valid name");
     }
 };
 
-// Add both click and touchstart event listeners
+// Bind both click and touchstart events
 usernameSubmit.addEventListener('click', handleUsernameSubmit);
-usernameSubmit.addEventListener('touchstart', handleUsernameSubmit);
+usernameSubmit.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Prevent duplicate triggers
+    handleUsernameSubmit(e);
+});
 
-// Listen for events
+// Listen for server events
 socket.on('user-joined', (name) => append(`${name} joined the chat`, 'right'));
 socket.on('receive', (data) => append(`${data.name}: ${data.message}`, 'left'));
 socket.on('user-left', (name) => append(`${name} left the chat`, 'right'));
