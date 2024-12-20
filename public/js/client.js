@@ -40,7 +40,7 @@ const append = (message, position) => {
 };
 
 // Show username input form
-usernameSubmit.addEventListener('click', () => {
+const handleUsernameSubmit = () => {
     const username = usernameInput.value;
     if (username) {
         usernameContainer.style.display = 'none';  // Hide the form after username is entered
@@ -48,7 +48,11 @@ usernameSubmit.addEventListener('click', () => {
     } else {
         alert("Please enter a name");
     }
-});
+};
+
+// Add both click and touchstart event listeners
+usernameSubmit.addEventListener('click', handleUsernameSubmit);
+usernameSubmit.addEventListener('touchstart', handleUsernameSubmit);
 
 // Listen for events
 socket.on('user-joined', (name) => append(`${name} joined the chat`, 'right'));
