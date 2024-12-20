@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameSubmit = document.getElementById('username-submit');
 
     // Add click event listener to the Submit button
-    usernameSubmit.addEventListener('tuchend', () => {
+    usernameSubmit.addEventListener('click', () => {
         console.log('Submit button clicked'); // Debug log
         const username = usernameInput.value.trim();
         console.log('Entered username:', username); // Debug log
@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             usernameContainer.classList.add('hidden');
             console.log('Container hidden successfully'); // Debug log
         } else {
+            usernameContainer.classList.add('hidden');
             alert('Please enter a valid name');
         }
     });
