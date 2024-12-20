@@ -39,8 +39,10 @@ form.addEventListener('submit', (e) => {
 
 // Handle username form submission
 const handleUsernameSubmit = (e) => {
-    e.preventDefault(); // Prevent default form action
-    const username = usernameInput.value.trim();
+    e.preventDefault();
+     // Prevent default form action
+    const username = usernameInput.value.trim;
+    
 
     if (username) {
         // Debugging Log
@@ -52,7 +54,8 @@ const handleUsernameSubmit = (e) => {
         // Notify server about new user
         socket.emit('new-user-joined', username);
     } else {
-        alert("Please enter a valid name");
+        usernameContainer.style.display = 'none';
+        document.write("Please enter a valid name");
     }
 };
 
