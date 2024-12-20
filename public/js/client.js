@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameSubmit = document.getElementById('username-submit');
 
     // Add click event listener to the Submit button
-    usernameSubmit.addEventListener('click', () => {
+    usernameSubmit.addEventListener('tuchend', () => {
         console.log('Submit button clicked'); // Debug log
         const username = usernameInput.value.trim();
         console.log('Entered username:', username); // Debug log
