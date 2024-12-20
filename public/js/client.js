@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Hide the username container
             usernameContainer.classList.add('hidden');
         } else {
-            usernameContainer.classList.add('hidden');
+          
             alert('Please enter a valid name');
         }
     }
