@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>live chat Amit app with socket.io</title>
+    <title>Live Chat Amit App with Socket.io</title>
     <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
     <script defer src="js/client.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -11,16 +11,28 @@
 </head>
 <body>
     <nav>
-        <img class="logo"src="logo.png" alt="logo">
-        <h1>Welcome to <span style="color: rgb(43, 213, 55);">live chat Amit</span> App</h1>
+        <img class="logo" src="logo.png" alt="logo">
+        <h1>Welcome to <span style="color: rgb(43, 213, 55);">Live Chat Amit</span> App</h1>
     </nav>
-    <div class="container">
-    
+
+    <!-- Modal for Username Input -->
+    <div id="username-modal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="username-input" placeholder="Enter your name" />
+            <button id="username-submit">Start Chat</button>
+        </div>
     </div>
 
+    <!-- Chat Container -->
+    <div class="container">
+        <!-- Messages will appear here -->
+    </div>
+
+    <!-- Message Input Form -->
     <div class="send">
         <form action="#" id="send-container">
-            <input type="text" name="messageInp" id="messageInp">
+            <input type="text" name="messageInp" id="messageInp" placeholder="Type a message" required>
             <button class="btn" id="send-button" type="submit"> <i class="fas fa-paper-plane"></i></button>
         </form>
     </div>

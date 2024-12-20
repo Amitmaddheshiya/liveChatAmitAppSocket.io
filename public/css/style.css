@@ -98,7 +98,52 @@ h1{
 }
 
 
+
 /* Styles for screens 425x608 or smaller */
+/* Modal styling */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+#username-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#username-submit {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(43, 213, 55);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+
+
+/* Styles for models */
 @media (max-width: 440px) and (max-height: 620px) {
     .message{
         width: 50%;
