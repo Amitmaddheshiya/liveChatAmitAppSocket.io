@@ -63,13 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
             usernameContainer.classList.add('hidden');
         } else {
           
-            alert('Please enter a valid name');
+            document.write('Please enter a valid name');
         }
     }
 
     // Add event listeners for click and touchend events
     usernameSubmit.addEventListener('click', handleUsernameSubmit);
-    usernameSubmit.addEventListener('touchend', handleUsernameSubmit);
+    usernameSubmit.addEventListener('tuchstart', handleUsernameSubmit);
 });
 
 
